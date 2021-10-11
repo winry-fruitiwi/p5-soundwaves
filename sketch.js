@@ -19,7 +19,7 @@ code planning:
         only columns need to be updated so we should just go through each
         column.
  */
-let font
+let font, particles
 
 function preload() {
     font = loadFont('fonts/Meiryo-01.ttf')
@@ -28,11 +28,20 @@ function preload() {
 function setup() {
     createCanvas(640, 360)
     colorMode(HSB, 360, 100, 100, 100)
+    particles = []
+
+    // this requires nested loops so I'll do row-major order. That's
+    // terminology I picked up from Java.
+    for (let i = 20; i < width; i += 20) {
+        for (let j = height/15; j < height; j += height/15) {
+            particles.push(new Particle(i, j));
+        }
+    }
 }
 
 function draw() {
     background(209, 80, 30)
-    let particle = new Particle(30, 30)
-
-    particle.show()
+    for (let particle of particles) {
+        particle.show()
+    }
 }
