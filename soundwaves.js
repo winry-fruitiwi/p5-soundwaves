@@ -25,7 +25,7 @@ function setup() {
     particles = []
 
     let MARGIN = 50
-    let SPACING = 18
+    let SPACING = 10
 
     for (let x = MARGIN; x < width-MARGIN; x += SPACING) {
         for (let y = MARGIN; y < height-MARGIN; y += SPACING) {
@@ -37,21 +37,30 @@ function setup() {
 function draw() {
     background(209, 80, 30)
     // While I get things to activate, Wispy will be right here.
-    wispy.show()
-    wispy.update()
+    // wispy.show()
+    // wispy.update()
 
-    // I'll uncomment this later.
-    // for (let particle of particles) {
-    //     particle.show()
-    // }
+    for (let particle of particles) {
+        particle.show()
+        particle.update()
+    }
 }
 
 // when we press our mouse we should activate our particle(s)!
 function mousePressed() {
     // Here's Wispy to keep you company while I work on oscillation.
-    wispy.activate(
-        50, // amplitude
-        10, // period
-        10   // delay
-    )
+    // wispy.activate(
+    //     50, // amplitude
+    //     10, // period
+    //     10   // delay
+    // )
+
+    for (let particle of particles) {
+        particle.activate(
+             16, // amplitude
+             8, // period
+             particle.originalX  // delay. This should change as the
+            // particles get farther from the origin's x-coordinate.
+         )
+    }
 }

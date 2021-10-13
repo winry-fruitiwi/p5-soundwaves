@@ -20,7 +20,7 @@ class Particle {
     // activates the particle and assigns it: a delay, amplitude, and period.
     activate(amplitude, period, delay) {
         // Test statement for Wispy, the queen of water!
-        console.log("I decree that we oscillate in " + delay + " frame(s)!")
+        // console.log("I decree that we oscillate in " + delay + " frame(s)!")
 
         this.activated = true
         this.period = period
