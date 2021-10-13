@@ -6,9 +6,9 @@ coding plan:
     particle class and show with test. Bugs: None!
     grid of particles. Bugs: Append instead of push.
     activate and oscillation:
-        use amplitude, period, delay with comments. Bugs:
-        mousePressed call. Bugs:
-        oscillate with update. Bugs:
+        use amplitude, period, delay with comments. Bugs: None!
+        mousePressed call. Bugs: None!
+        oscillate with update. Bugs: Forgot the this dot, didn't divide angle?
  */
 let font
 let wispy, particles
@@ -24,8 +24,8 @@ function setup() {
     wispy = new Particle(320, 180)
     particles = []
 
-    let MARGIN = 50;
-    let SPACING = 18;
+    let MARGIN = 50
+    let SPACING = 18
 
     for (let x = MARGIN; x < width-MARGIN; x += SPACING) {
         for (let y = MARGIN; y < height-MARGIN; y += SPACING) {
@@ -36,8 +36,22 @@ function setup() {
 
 function draw() {
     background(209, 80, 30)
-    // wispy.show()
-    for (let particle of particles) {
-        particle.show()
-    }
+    // While I get things to activate, Wispy will be right here.
+    wispy.show()
+    wispy.update()
+
+    // I'll uncomment this later.
+    // for (let particle of particles) {
+    //     particle.show()
+    // }
+}
+
+// when we press our mouse we should activate our particle(s)!
+function mousePressed() {
+    // Here's Wispy to keep you company while I work on oscillation.
+    wispy.activate(
+        50, // amplitude
+        10, // period
+        10   // delay
+    )
 }
