@@ -26,10 +26,38 @@ function setup() {
 
     let MARGIN = 50
     let SPACING = 10
+    const highlightedRow = 33
 
-    for (let x = MARGIN; x < width-MARGIN; x += SPACING) {
-        for (let y = MARGIN; y < height-MARGIN; y += SPACING) {
-            particles.push(new Particle(x, y))
+    // this code was an accident and it seemingly mirrors a sea snake swimming!
+    // for (let column = 0; column <= 53; column++) {
+    //     for (let column = 0; column <= 25; column++) {
+    //         // shows that the pulses are just illusions!
+    //         if (column === highlightedRow) {
+    //             particles.push(new Particle(
+    //                 MARGIN + column * SPACING,
+    //                 MARGIN + column * SPACING,
+    //                 color(0, 0, 100))) // new color property!
+    //         } else {
+    //             particles.push(new Particle(
+    //                 MARGIN + column * SPACING,
+    //                 MARGIN + column * SPACING))
+    //         }
+    //     }
+    // }
+
+    for (let column = 0; column <= 53; column++) {
+        for (let row = 0; row <= 25; row++) {
+            // shows that the pulses are just illusions!
+            if (column === highlightedRow) {
+                particles.push(new Particle(
+                    MARGIN + column * SPACING,
+                    MARGIN + row * SPACING,
+                    color(0, 0, 100))) // new color property!
+            } else {
+                particles.push(new Particle(
+                    MARGIN + column * SPACING,
+                    MARGIN + row * SPACING))
+            }
         }
     }
 }
@@ -60,7 +88,8 @@ function mousePressed() {
              16, // amplitude
              8, // period
              particle.originalX  // delay. This should change as the
-            // particles get farther from the origin's x-coordinate.
+            // particles get farther from the origin's x-coordinate. I can
+            // also subtract the
          )
     }
 }

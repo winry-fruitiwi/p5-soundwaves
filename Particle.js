@@ -1,7 +1,7 @@
 // models a wind particle that oscillates back and forth.
 
 class Particle {
-    constructor(x, y) {
+    constructor(x, y, Color) {
         this.originalX = x
         this.x = x
         this.y = y
@@ -9,10 +9,15 @@ class Particle {
         this.activated = false
         // this is our internal angle like a frameCount that can pause.
         this.angle = 0
+        // shows the particle with a specific color. Color = HSB value
+        this.color = Color;
+        if (Color == null) {
+            this.color = color(0, 0, 100, 50)
+        }
     }
 
     show() {
-        stroke(0, 0, 100, 50)
+        stroke(this.color)
         strokeWeight(6)
         point(this.x, this.y)
     }
